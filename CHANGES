@@ -1,0 +1,23 @@
+Tue Jun 25, 2013, Dániel Kondor (kondor.dani@gmail.com):
+                    Implement the O(log(n)) computation of the rank of any node.
+                    This is achieved by storing the size of the subtree of each
+                    node. The tree modification functions (LeftRotate, RightRotate,
+                    TreeInsertHelp and RBDelete) were modified to keep track of these
+                    values. The additional complexity is O(1) in LeftRotate and
+                    RightRotate; it is O(log(n)) in TreeInsertHelp and RBDelete.
+                    Added the GetNodeRank function which computes the rank for a
+                    given node (complexity: O(log(n))).
+                    Added the convenience functions TreeFirst and TreeLast for
+                    getting the first and last element in a tree (useful for
+                    implementing a custom iteration over all elements; currently
+                    used in the test program ranktest.c)
+
+Sun Jan 09, 2005: I fixed a bug that caused the test_rb program to
+                  go into an infinite loop if the user entered an
+                  invalid key.  Thanks to Amores Perros for pointing
+                  out this problem.
+
+Wed Sep 19, 2001: I fixed some bugs and memory leaks pointed out
+                  by Brett Donahue and added some rudimentary
+                  memory checking tests to the makefile.
+
